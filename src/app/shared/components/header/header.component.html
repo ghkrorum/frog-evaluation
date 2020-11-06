@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <div class="container">
+            <div class="row between-xs middle-xs header-row">
+              <nav>
+                <a mat-button routerLink="/home" routerLinkActive="active">Home</a>
+                <a mat-button routerLink="/discover" *ngIf="hasUser" routerLinkActive="active"
+                  >Discover</a
+                >
+                <a mat-button routerLink="/login" *ngIf="!hasUser" routerLinkActive="active"
+                  >Login</a>
+                <button mat-button *ngIf="hasUser" (click)="logout()">Logout</button>
+              </nav>
+            </div>
+          </div>
+    </mat-toolbar-row>
+</mat-toolbar>

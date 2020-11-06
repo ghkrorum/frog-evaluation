@@ -1,0 +1,48 @@
+<div class="row center-xs">
+    <div class="col-xs-12 col-md-6">
+        <div class="row">
+            <div class="col-xs-12">
+                <mat-carousel
+                timings="250ms ease-in"
+                [autoplay]="true"
+                interval="2000"
+                color="accent"
+                maxWidth="auto"
+                proportion="100"
+                slides="5"
+                [loop]="true"
+                [hideArrows]="true"
+                [hideIndicators]="true"
+                [useKeyboard]="true"
+                [useMouseWheel]="true"
+                orientation="ltr"
+                >
+                <mat-carousel-slide
+                    #matCarouselSlide
+                    *ngFor="let slide of masonryItems; let i = index"
+                    [image]="slide.src"
+                    overlayColor="#00000040"
+                    [hideOverlay]="false"
+                >
+                    <img [src]="slide.src" lightbox [fullImage]="{path: slide.src}" class="slide-img"/>
+                </mat-carousel-slide>
+                </mat-carousel>
+            </div>
+        </div>
+        <div class="row start-xs">
+            <div class="col-xs-12"><h1 class="title">Browse all</h1></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="img-cont">
+                    <ngx-masonry [options]="{ gutter: 10 }">
+                        <div ngxMasonryItem class="masonry-item" *ngFor="let item of masonryItems; ; let i=index">
+                            <img [src]="item.src" lightbox [fullImage]="{path: item.src}" />
+                        </div>
+                    </ngx-masonry>
+                    <button mat-raised-button type="submit" class="full-width more-btn" (click)="addMore()">SEE MORE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
